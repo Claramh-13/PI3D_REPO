@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01f8399c97cf8e41b750b281ad76981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
-  CalcetinesPrefab: {fileID: 4188137257970547106, guid: bb6d06863697cd343bbdb3dc49635fd7, type: 3}
+  laundaryObjectSO: {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
   counterTopPoint: {fileID: 5857446586812339770}
 --- !u!1001 &3423469269046936562
 PrefabInstance:

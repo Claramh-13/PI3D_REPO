@@ -2106,6 +2106,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8258004448384357136, guid: b4a5ffcf719b6ef4f9ec110e7e964b8a, type: 3}
+      propertyPath: CalcetinesPrefab
+      value: 
+      objectReference: {fileID: 3188704024247454990, guid: 4e87c5dbede9b3c4d9a779937d69efa9, type: 3}
+    - target: {fileID: 8258004448384357136, guid: b4a5ffcf719b6ef4f9ec110e7e964b8a, type: 3}
+      propertyPath: laundaryObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: bdbe6aed11069cd4aa6dc985ff114498, type: 2}
     - target: {fileID: 8324468838732836037, guid: b4a5ffcf719b6ef4f9ec110e7e964b8a, type: 3}
       propertyPath: m_Name
       value: Counter (1)
