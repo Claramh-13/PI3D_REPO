@@ -17,7 +17,7 @@ public class ClearCounter : MonoBehaviour
             if (laundaryObject != null)
             {
                 laundaryObject.SetClearCounter(secondClearCounter);
-                laundaryObject = null;
+               
             }
         }
     }
@@ -26,10 +26,9 @@ public class ClearCounter : MonoBehaviour
         if (laundaryObject == null)
         {
             Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab, counterTopPoint);
+            laudaryObjectTransform.GetComponent<LaundaryObject>().SetClearCounter(this);
             laudaryObjectTransform.localPosition = Vector3.zero;
 
-           laundaryObject = laudaryObjectTransform.GetComponent<LaundaryObject>();
-            laundaryObject.SetClearCounter(this);
         } else { Debug.Log(laundaryObject.GetClearCounter()); }
     }
 
