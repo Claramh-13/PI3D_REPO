@@ -6,7 +6,7 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
@@ -14,7 +14,7 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
     [SerializeField] private Transform laundaryObjectHoldPoint;
     private bool isWalking;
     private Vector3 lastInteractDir;
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private LaundaryObject laundaryObject;
     private void Awake()
     {
@@ -55,11 +55,11 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
         float interactionInstance = 2f;
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
-            if (raycasthit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                if (clearCounter != selectedCounter)
+                if (baseCounter != selectedCounter)
                 {
-                    SetSelectedCounter(clearCounter);
+                    SetSelectedCounter(baseCounter);
                 }
             }
             else
@@ -106,7 +106,7 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
-    private void SetSelectedCounter(ClearCounter selectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs { selectedCounter = selectedCounter });

@@ -42,8 +42,9 @@ GameObject:
   - component: {fileID: 1323921422829646155}
   - component: {fileID: 5093089402942114119}
   - component: {fileID: 8258004448384357136}
+  - component: {fileID: 965456768789616826}
   m_Layer: 6
-  m_Name: Basket
+  m_Name: ContainerVariant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,9 +63,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5857446586812339770}
   - {fileID: 4275217944104561241}
   - {fileID: 2035408497524199398}
-  - {fileID: 5857446586812339770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &5093089402942114119
@@ -102,6 +103,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
   laundaryObjectSO: {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
   counterTopPoint: {fileID: 5857446586812339770}
+--- !u!114 &965456768789616826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324468838732836037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c693255ea272d7043b7a6b4617b90c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ContainerCpunter
+  laundaryObjectSO: {fileID: 0}
+  counterTopPoint: {fileID: 0}
 --- !u!1001 &1996643039036090381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,15 +127,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_LocalScale.x
-      value: 34.8774
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_LocalScale.y
-      value: 34.877396
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_LocalScale.z
-      value: 38.635815
+      value: 38.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_LocalPosition.x
@@ -160,6 +175,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
@@ -273,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_Name
       value: 'Basket '
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

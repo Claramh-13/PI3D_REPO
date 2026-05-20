@@ -1,10 +1,9 @@
 using UnityEngine;
-public class ClearCounter : BaseCounter, ILaundaryObjectParent
+public class ContainerCounter : BaseCounter, ILaundaryObjectParent
 {
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
     [SerializeField] private Transform counterTopPoint;
     private LaundaryObject laundaryObject;
-
     public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
         if (laundaryObject == null)
