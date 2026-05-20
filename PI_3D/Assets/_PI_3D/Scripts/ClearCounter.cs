@@ -1,48 +1,27 @@
 using UnityEngine;
-
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : MonoBehaviour, ILaundaryObjectParent
 {
-
-   [SerializeField] private LaundaryObjectSO laundaryObjectSO;
-   [SerializeField] private Transform counterTopPoint;
-   [SerializeField] private ClearCounter secondClearCounter;
-    [SerializeField] private bool testing;
+    [SerializeField] private LaundaryObjectSO laundaryObjectSO;
+    [SerializeField] private Transform counterTopPoint;
 
     private LaundaryObject laundaryObject;
-
-    private void Update()
-    {
-        if (testing && Input.GetKeyDown(KeyCode.T))
-        {
-            if (laundaryObject != null)
-            {
-                laundaryObject.SetClearCounter(secondClearCounter);
-               
-            }
-        }
-    }
-    public void Interact() 
+    
+    public void Interact(Player_Controller player)
     {
         if (laundaryObject == null)
         {
             Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab, counterTopPoint);
-            laudaryObjectTransform.GetComponent<LaundaryObject>().SetClearCounter(this);
+            laudaryObjectTransform.GetComponent<LaundaryObject>().SetlaundaryObjectParent(this);
             laudaryObjectTransform.localPosition = Vector3.zero;
-
-        } else { Debug.Log(laundaryObject.GetClearCounter()); }
+        }
+        else
+        {
+            laundaryObject.SetlaundaryObjectParent(player);
+        }
     }
-
     public Transform GetLaundaryObjectFollowTransform() { return counterTopPoint; }
-    public void SetLaundaryObject(LaundaryObject laundaryObject)
-    {
-        this.laundaryObject = laundaryObject;
-    }
-
+    public void SetLaundaryObject(LaundaryObject laundaryObject) { this.laundaryObject = laundaryObject; }
     public LaundaryObject GetLaundaryObject() { return laundaryObject; }
-    public void ClearLaundaryObject()
-    {
-        laundaryObject = null;
-    }
-
+    public void ClearLaundaryObject() { laundaryObject = null; }
     public bool HasLaundaryObject() { return laundaryObject != null; }
 }

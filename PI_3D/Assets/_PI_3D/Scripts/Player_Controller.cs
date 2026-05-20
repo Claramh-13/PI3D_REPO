@@ -1,49 +1,40 @@
 using System;
 using UnityEngine;
-public class Player_Controller : MonoBehaviour
+public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
 {
-
     public static Player_Controller Instance { get; private set; }
-
-
-
-
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
-    public class OnSelectedCounterChangedEventArgs : EventArgs 
+    public class OnSelectedCounterChangedEventArgs : EventArgs
     {
         public ClearCounter selectedCounter;
     }
-
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
+    [SerializeField] private Transform laundaryObjectHoldPoint;
     private bool isWalking;
     private Vector3 lastInteractDir;
     private ClearCounter selectedCounter;
-
+    private LaundaryObject laundaryObject;
     private void Awake()
-    { if (Instance != null)
+    {
+        if (Instance != null)
         {
             Debug.LogError("There is more than 1 player instance");
         }
-
         Instance = this;
     }
-
     private void Start()
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
     }
-
-    private void GameInput_OnInteractAction(object sender, System.EventArgs e) 
+    private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        if(selectedCounter != null) 
+        if (selectedCounter != null)
         {
-            selectedCounter.Interact();
+            selectedCounter.Interact(this);
         }
-     
     }
-
     private void Update()
     {
         HandleMovement();
@@ -57,12 +48,10 @@ public class Player_Controller : MonoBehaviour
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-
         if (moveDir != Vector3.zero)
         {
             lastInteractDir = moveDir;
         }
-
         float interactionInstance = 2f;
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
@@ -117,10 +106,14 @@ public class Player_Controller : MonoBehaviour
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
-
     private void SetSelectedCounter(ClearCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs { selectedCounter = selectedCounter });
     }
+    public Transform GetLaundaryObjectFollowTransform() { return laundaryObjectHoldPoint; }
+    public void SetLaundaryObject(LaundaryObject laundaryObject) { this.laundaryObject = laundaryObject; }
+    public LaundaryObject GetLaundaryObject() { return laundaryObject; }
+    public void ClearLaundaryObject() { laundaryObject = null; }
+    public bool HasLaundaryObject() { return laundaryObject != null; }
 }

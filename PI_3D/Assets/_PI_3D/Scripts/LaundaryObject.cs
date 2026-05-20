@@ -4,18 +4,18 @@ public class LaundaryObject : MonoBehaviour
 {
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
 
-    private ClearCounter clearCounter;
+    private ILaundaryObjectParent laundaryObjectParent;
     public LaundaryObjectSO GetLaundaryObjectSO() { return laundaryObjectSO; }
-    public void SetClearCounter(ClearCounter clearcounter) 
+    public void SetlaundaryObjectParent(ILaundaryObjectParent laundaryObjectParent) 
     {
-        if (this.clearCounter != null) { this.clearCounter.ClearLaundaryObject(); }
+        if (this.laundaryObjectParent != null) { this.laundaryObjectParent.ClearLaundaryObject(); }
 
-        this.clearCounter = clearcounter; 
-        if (clearCounter.HasLaundaryObject()) { Debug.LogError("Counter alredy has a LaundaryObject"); }
-        clearCounter.SetLaundaryObject(this);
+        this.laundaryObjectParent = laundaryObjectParent; 
+        if (laundaryObjectParent.HasLaundaryObject()) { Debug.LogError("ILaundaryObjectParent alredy has a LaundaryObject"); }
+        laundaryObjectParent.SetLaundaryObject(this);
 
-        transform.parent = clearcounter.GetLaundaryObjectFollowTransform();
+        transform.parent = laundaryObjectParent.GetLaundaryObjectFollowTransform();
         transform.localPosition = Vector3.zero;
     }
-    public ClearCounter GetClearCounter() { return clearCounter; }
+    public ILaundaryObjectParent GetLaundaryObjectParent() { return laundaryObjectParent; }
 }
