@@ -18,7 +18,19 @@ public class SelectedCounterVisual : MonoBehaviour
         {
             Hide();
         }
+
+        Debug.Log("Selected: " + e.selectedCounter + " | BaseCounter: " + baseCounter);
+        if (e.selectedCounter == baseCounter)
+        {
+            Show();
+        }
+        else
+        {
+            Hide();
+        }
     }
+
+
     private void Show()
     {
         foreach(GameObject visualGameObject in visualGameObjectArray)
@@ -29,4 +41,6 @@ public class SelectedCounterVisual : MonoBehaviour
         foreach(GameObject visualGameObject in visualGameObjectArray)
         visualGameObject.SetActive(false);
     }
+
+  
 }

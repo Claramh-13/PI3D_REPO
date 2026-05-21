@@ -53,8 +53,10 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
             lastInteractDir = moveDir;
         }
         float interactionInstance = 2f;
-        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
+            Debug.Log("Detectado: " + raycasthit.transform.name);
+            Debug.Log("Tiene BaseCounter: " + raycasthit.transform.TryGetComponent(out BaseCounter baseCounter));
             if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
                 if (baseCounter != selectedCounter)
