@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5093089402942114119}
   - component: {fileID: 8258004448384357136}
   - component: {fileID: 965456768789616826}
+  - component: {fileID: 7280109353065161672}
   m_Layer: 6
   m_Name: ContainerVariant
   m_TagString: Untagged
@@ -101,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01f8399c97cf8e41b750b281ad76981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
-  laundaryObjectSO: {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
   counterTopPoint: {fileID: 5857446586812339770}
+  laundaryObjectSO: {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
 --- !u!114 &965456768789616826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,8 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c693255ea272d7043b7a6b4617b90c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCpunter
-  laundaryObjectSO: {fileID: 0}
   counterTopPoint: {fileID: 0}
+  laundaryObjectSO: {fileID: 0}
+--- !u!114 &7280109353065161672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324468838732836037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2652dfd7b590b834db0116eef9d00b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
+  baseCounter: {fileID: 8258004448384357136}
+  visualGameObjectArray:
+  - {fileID: 1690232573597160796}
 --- !u!1001 &1996643039036090381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -218,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2652dfd7b590b834db0116eef9d00b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  clearCounter: {fileID: 8258004448384357136}
-  visualGameObject: {fileID: 1690232573597160796}
+  baseCounter: {fileID: 8258004448384357136}
+  visualGameObjectArray:
+  - {fileID: 1690232573597160796}
 --- !u!4 &2035408497524199398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}

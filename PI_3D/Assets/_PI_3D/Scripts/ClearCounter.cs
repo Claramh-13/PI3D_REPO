@@ -1,26 +1,40 @@
 using UnityEngine;
-public class ClearCounter : BaseCounter, ILaundaryObjectParent
+public class ClearCounter : BaseCounter
 {
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
-    [SerializeField] private Transform counterTopPoint;
-    private LaundaryObject laundaryObject;
 
     public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
-        if (laundaryObject == null)
+        if (!HasLaundaryObject())
         {
-            Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab, counterTopPoint);
-            laudaryObjectTransform.GetComponent<LaundaryObject>().SetlaundaryObjectParent(this);
-            laudaryObjectTransform.localPosition = Vector3.zero;
+            // No hay objeto en la encimera
+            if (laundaryObjectParent.HasLaundaryObject())
+            {
+                // El jugador lleva algo, lo pone en la encimera
+                laundaryObjectParent.GetLaundaryObject().SetlaundaryObjectParent(this);
+            }
+            else
+            {
+                // El jugador no lleva nada, spawneamos objeto
+                if (laundaryObjectSO != null)
+                {
+                    Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab);
+                    laudaryObjectTransform.GetComponent<LaundaryObject>().SetlaundaryObjectParent(this);
+                }
+            }
         }
         else
         {
-            laundaryObject.SetlaundaryObjectParent(laundaryObjectParent);
+            // Hay un objeto en la encimera
+            if (laundaryObjectParent.HasLaundaryObject())
+            {
+                // El jugador lleva algo, no hacemos nada
+            }
+            else
+            {
+                // El jugador no lleva nada, coge el objeto
+                GetLaundaryObject().SetlaundaryObjectParent(laundaryObjectParent);
+            }
         }
     }
-    public Transform GetLaundaryObjectFollowTransform() { return counterTopPoint; }
-    public void SetLaundaryObject(LaundaryObject laundaryObject) { this.laundaryObject = laundaryObject; }
-    public LaundaryObject GetLaundaryObject() { return laundaryObject; }
-    public void ClearLaundaryObject() { laundaryObject = null; }
-    public bool HasLaundaryObject() { return laundaryObject != null; }
 }
