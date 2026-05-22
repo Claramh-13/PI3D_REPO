@@ -1,23 +1,28 @@
+using System;
 using UnityEngine;
+public class Lavadora : BaseCounter
+{
+    public event EventHandler OnProgressChanged;
+    public class OnProgressChangedEventArgs : EventArgs 
+    {
+        public float progressNormalized;
+    }
 
-public class Lavadora : BaseCounter {
 
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
-    [SerializeField] private LaundaryObjectSO wetLaundaryObjectSO;
+    [SerializeField] private RopaMojadaSO[] ropaMojadaSOArray;
 
     public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
+        Debug.Log("Lavadora HasLaundaryObject: " + HasLaundaryObject());
         if (!HasLaundaryObject())
         {
-            // No hay objeto en la encimera
             if (laundaryObjectParent.HasLaundaryObject())
             {
-                // El jugador lleva algo, lo pone en la encimera
                 laundaryObjectParent.GetLaundaryObject().SetlaundaryObjectParent(this);
             }
             else
             {
-                // El jugador no lleva nada, spawneamos objeto
                 if (laundaryObjectSO != null)
                 {
                     Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab);
@@ -27,14 +32,12 @@ public class Lavadora : BaseCounter {
         }
         else
         {
-            // Hay un objeto en la encimera
             if (laundaryObjectParent.HasLaundaryObject())
             {
                 // El jugador lleva algo, no hacemos nada
             }
             else
             {
-                // El jugador no lleva nada, coge el objeto
                 GetLaundaryObject().SetlaundaryObjectParent(laundaryObjectParent);
             }
         }
@@ -44,10 +47,21 @@ public class Lavadora : BaseCounter {
     {
         if (HasLaundaryObject())
         {
+            LaundaryObjectSO outputLaundaryObjectSO = GetOutputForInput(GetLaundaryObject().GetLaundaryObjectSO());
             GetLaundaryObject().DestroySelf();
-
-            LaundaryObject.SpawnLaundaryObject(wetLaundaryObjectSO, this);
+            LaundaryObject.SpawnLaundaryObject(outputLaundaryObjectSO, this);
         }
     }
 
+    private LaundaryObjectSO GetOutputForInput(LaundaryObjectSO inputLaundaryObjectSO)
+    {
+        foreach (RopaMojadaSO ropaMojadaSO in ropaMojadaSOArray)
+        {
+            if (ropaMojadaSO.input == inputLaundaryObjectSO)
+            {
+                return ropaMojadaSO.output;
+            }
+        }
+        return null;
+    }
 }
