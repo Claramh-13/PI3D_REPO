@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public class Lavadora : BaseCounter
 {
-    public event EventHandler OnProgressChanged;
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
     public class OnProgressChangedEventArgs : EventArgs 
     {
         public float progressNormalized;
@@ -12,6 +12,8 @@ public class Lavadora : BaseCounter
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
     [SerializeField] private RopaMojadaSO[] ropaMojadaSOArray;
 
+    private int lavadoraProgress;
+    
     public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
         Debug.Log("Lavadora HasLaundaryObject: " + HasLaundaryObject());
@@ -20,6 +22,9 @@ public class Lavadora : BaseCounter
             if (laundaryObjectParent.HasLaundaryObject())
             {
                 laundaryObjectParent.GetLaundaryObject().SetlaundaryObjectParent(this);
+                lavadoraProgress = 0;
+                RopaMojadaSO ropaMojadaSO1 = GetRopaMojadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
+                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs { progressNormalized = (float)lavadoraProgress / ropaMojadaSO1.lavadoraProgressMax });
             }
             else
             {
@@ -47,19 +52,39 @@ public class Lavadora : BaseCounter
     {
         if (HasLaundaryObject())
         {
-            LaundaryObjectSO outputLaundaryObjectSO = GetOutputForInput(GetLaundaryObject().GetLaundaryObjectSO());
-            GetLaundaryObject().DestroySelf();
-            LaundaryObject.SpawnLaundaryObject(outputLaundaryObjectSO, this);
+            lavadoraProgress++;
+            RopaMojadaSO ropaMojadaSO1 = GetRopaMojadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
+            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs { progressNormalized = (float)lavadoraProgress / ropaMojadaSO1.lavadoraProgressMax });
+
+            if (lavadoraProgress >= ropaMojadaSO1.lavadoraProgressMax)
+            {
+                LaundaryObjectSO outputLaundaryObjectSO = GetOutputForInput(GetLaundaryObject().GetLaundaryObjectSO());
+                GetLaundaryObject().DestroySelf();
+                LaundaryObject.SpawnLaundaryObject(outputLaundaryObjectSO, this);
+            }
         }
     }
 
     private LaundaryObjectSO GetOutputForInput(LaundaryObjectSO inputLaundaryObjectSO)
     {
+        RopaMojadaSO ropaMojadaSO1 = GetRopaMojadaSOWhithInput(inputLaundaryObjectSO);
+        if (ropaMojadaSO1 != null)
+        {
+            return ropaMojadaSO1.output;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private RopaMojadaSO GetRopaMojadaSOWhithInput(LaundaryObjectSO laundaryObjectSO)
+    {
         foreach (RopaMojadaSO ropaMojadaSO in ropaMojadaSOArray)
         {
-            if (ropaMojadaSO.input == inputLaundaryObjectSO)
+            if (ropaMojadaSO.input == laundaryObjectSO)
             {
-                return ropaMojadaSO.output;
+                return ropaMojadaSO;
             }
         }
         return null;

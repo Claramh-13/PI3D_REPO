@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RopaMojadaSO
   input: {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
   output: {fileID: 11400000, guid: b505e1523897a4948b081fd0fbdf7af9, type: 2}
+  lavadoraProgressMax: 3
