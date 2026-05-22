@@ -128,4 +128,6 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
     public LaundaryObject GetLaundaryObject() { return laundaryObject; }
     public void ClearLaundaryObject() { laundaryObject = null; }
     public bool HasLaundaryObject() { return laundaryObject != null; }
+
+    
 }
