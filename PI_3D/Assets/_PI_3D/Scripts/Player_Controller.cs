@@ -56,9 +56,11 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
         if (Physics.Raycast(transform.position + Vector3.up * 0.5f, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
             Debug.Log("Detectado: " + raycasthit.transform.name);
-            Debug.Log("Tiene BaseCounter: " + raycasthit.transform.TryGetComponent(out BaseCounter baseCounter));
+           
             if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
+                Debug.Log("Tiene BaseCounter: true");
+
                 if (baseCounter != selectedCounter)
                 {
                     SetSelectedCounter(baseCounter);
@@ -66,6 +68,7 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
             }
             else
             {
+                Debug.Log("Tiene BaseCounter: false");
                 SetSelectedCounter(null);
             }
         }
