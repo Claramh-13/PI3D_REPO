@@ -3,6 +3,7 @@ using UnityEngine;
 public class Lavadora : BaseCounter {
 
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
+    [SerializeField] private LaundaryObjectSO wetLaundaryObjectSO;
 
     public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
@@ -38,5 +39,15 @@ public class Lavadora : BaseCounter {
             }
         }
     }
-   
+
+    public override void InteractAlternate(ILaundaryObjectParent laundaryObjectParent)
+    {
+        if (HasLaundaryObject())
+        {
+            GetLaundaryObject().DestroySelf();
+
+            LaundaryObject.SpawnLaundaryObject(wetLaundaryObjectSO, this);
+        }
+    }
+
 }

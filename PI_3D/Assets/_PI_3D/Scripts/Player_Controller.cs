@@ -27,6 +27,15 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
     private void Start()
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
+        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+    }
+    private void GameInput_OnInteractAlternateAction(object sender, System.EventArgs e)
+    {
+        Debug.Log("InteractAlternate pulsado, selectedCounter: " + selectedCounter);
+        if (selectedCounter != null)
+        {
+            selectedCounter.InteractAlternate(this);
+        }
     }
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
@@ -56,11 +65,9 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
         if (Physics.Raycast(transform.position + Vector3.up * 0.5f, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
             Debug.Log("Detectado: " + raycasthit.transform.name);
-           
             if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
                 Debug.Log("Tiene BaseCounter: true");
-
                 if (baseCounter != selectedCounter)
                 {
                     SetSelectedCounter(baseCounter);

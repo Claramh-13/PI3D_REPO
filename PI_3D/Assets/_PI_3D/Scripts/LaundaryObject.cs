@@ -18,4 +18,23 @@ public class LaundaryObject : MonoBehaviour
         transform.localPosition = Vector3.zero;
     }
     public ILaundaryObjectParent GetLaundaryObjectParent() { return laundaryObjectParent; }
+
+    public void DestroySelf() 
+    {
+      laundaryObjectParent.ClearLaundaryObject() ;
+        Destroy(gameObject);
+    
+    }
+
+
+    public static LaundaryObject SpawnLaundaryObject(LaundaryObjectSO laundaryObjectSO, ILaundaryObjectParent laundaryObjectParent) 
+    {
+        Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab);
+        LaundaryObject laundaryObject = laudaryObjectTransform.GetComponent<LaundaryObject>();
+        laundaryObject.SetlaundaryObjectParent(laundaryObjectParent);
+
+        return laundaryObject;
+
+    }
+
 }

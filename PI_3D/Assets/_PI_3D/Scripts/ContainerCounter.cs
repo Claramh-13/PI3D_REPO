@@ -10,8 +10,8 @@ public class ContainerCounter : BaseCounter
         if (!laundaryObjectParent.HasLaundaryObject())
         {
             // El jugador no lleva nada
-            Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab);
-            laudaryObjectTransform.GetComponent<LaundaryObject>().SetlaundaryObjectParent(laundaryObjectParent);
+            LaundaryObject.SpawnLaundaryObject(laundaryObjectSO, this);
+            
             OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
         }
     }

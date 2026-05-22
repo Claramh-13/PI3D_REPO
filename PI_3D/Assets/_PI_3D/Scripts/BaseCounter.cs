@@ -7,6 +7,12 @@ public class BaseCounter : MonoBehaviour, ILaundaryObjectParent
     {
         Debug.LogError("BaseCounter.Interact();");
     }
+
+    public virtual void InteractAlternate(ILaundaryObjectParent laundaryObjectParent)
+    {
+        Debug.LogError("BaseCounter.InteractAlternate();");
+    }
+
     public Transform GetLaundaryObjectFollowTransform() { return counterTopPoint; }
     public void SetLaundaryObject(LaundaryObject laundaryObject) { this.laundaryObject = laundaryObject; }
     public LaundaryObject GetLaundaryObject() { return laundaryObject; }
