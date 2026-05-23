@@ -1,16 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   
+    private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AudioSource.PlayClipAtPoint(audioClip, position, volume);
     }
 }
