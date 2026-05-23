@@ -1,16 +1,13 @@
 using System;
 using UnityEngine;
-public class Lavadora_Progress : BaseCounter
+public class Lavadora_Progress : BaseCounter, IHasProgress
 {
-    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
-    public class OnProgressChangedEventArgs : EventArgs
-    {
-        public float progressNormalized;
-    }
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
     [SerializeField] private RopaMojadaSO[] ropaMojadaSOArray;
-    private int lavadoraProgress;
+    [SerializeField] private RopaQuemadaSO[] ropaQuemadaSOArray;
     private float lavadoraTimer;
+    private float burningTimer;
 
     private enum State
     {
@@ -40,27 +37,46 @@ public class Lavadora_Progress : BaseCounter
                     RopaMojadaSO ropaMojadaSO = GetRopaMojadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
                     if (ropaMojadaSO == null) return;
                     lavadoraTimer += Time.deltaTime;
-                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
-                        progressNormalized = lavadoraTimer / ropaMojadaSO.lavadoraProgressMax
+                        progressNormalized = lavadoraTimer / (float)ropaMojadaSO.lavadoraProgressMax
                     });
-                    if (lavadoraTimer > ropaMojadaSO.lavadoraProgressMax)
+                    if (lavadoraTimer > (float)ropaMojadaSO.lavadoraProgressMax)
                     {
-
                         GetLaundaryObject().DestroySelf();
                         LaundaryObject.SpawnLaundaryObject(ropaMojadaSO.output, this);
-                        Debug.Log("Objeto lavado");
                         state = State.Washed;
+                        burningTimer = 0f;
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0.01f
+                        });
                     }
                     break;
 
                 case State.Washed:
+                    RopaQuemadaSO ropaQuemadaSO = GetRopaQuemadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
+                    if (ropaQuemadaSO == null) return;
+                    burningTimer += Time.deltaTime;
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = burningTimer / ropaQuemadaSO.burningTimerMax
+                    });
+                    if (burningTimer > ropaQuemadaSO.burningTimerMax)
+                    {
+                        GetLaundaryObject().DestroySelf();
+                        LaundaryObject.SpawnLaundaryObject(ropaQuemadaSO.output, this);
+                        state = State.Burned;
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0f
+                        });
+                    }
                     break;
 
                 case State.Burned:
                     break;
             }
-            Debug.Log(state);
         }
     }
 
@@ -75,24 +91,16 @@ public class Lavadora_Progress : BaseCounter
                     laundaryObjectParent.GetLaundaryObject().SetlaundaryObjectParent(this);
                     state = State.Whashing;
                     lavadoraTimer = 0f;
-                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
                         progressNormalized = 0f
                     });
                 }
             }
-            else
-            {
-                // El jugador no lleva nada, no hacemos nada
-            }
         }
         else
         {
-            if (laundaryObjectParent.HasLaundaryObject())
-            {
-                // El jugador lleva algo, no hacemos nada
-            }
-            else
+            if (!laundaryObjectParent.HasLaundaryObject())
             {
                 GetLaundaryObject().SetlaundaryObjectParent(laundaryObjectParent);
                 state = State.Idle;
@@ -100,38 +108,15 @@ public class Lavadora_Progress : BaseCounter
         }
     }
 
-    public override void InteractAlternate(ILaundaryObjectParent laundaryObjectParent)
-    {
-        if (HasLaundaryObject())
-        {
-            lavadoraProgress++;
-            RopaMojadaSO ropaMojadaSO = GetRopaMojadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
-            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
-            {
-                progressNormalized = (float)lavadoraProgress / ropaMojadaSO.lavadoraProgressMax
-            });
-            if (lavadoraProgress >= ropaMojadaSO.lavadoraProgressMax)
-            {
-                LaundaryObjectSO outputLaundaryObjectSO = GetOutputForInput(GetLaundaryObject().GetLaundaryObjectSO());
-                GetLaundaryObject().DestroySelf();
-                LaundaryObject.SpawnLaundaryObject(outputLaundaryObjectSO, this);
-            }
-        }
-    }
-
     private bool HasRopaMojadaWithInput(LaundaryObjectSO inputLaundaryObjectSO)
     {
-        RopaMojadaSO ropaMojadaSO = GetRopaMojadaSOWhithInput(inputLaundaryObjectSO);
-        return ropaMojadaSO != null;
+        return GetRopaMojadaSOWhithInput(inputLaundaryObjectSO) != null;
     }
 
     private LaundaryObjectSO GetOutputForInput(LaundaryObjectSO inputLaundaryObjectSO)
     {
         RopaMojadaSO ropaMojadaSO = GetRopaMojadaSOWhithInput(inputLaundaryObjectSO);
-        if (ropaMojadaSO != null)
-        {
-            return ropaMojadaSO.output;
-        }
+        if (ropaMojadaSO != null) return ropaMojadaSO.output;
         return null;
     }
 
@@ -145,5 +130,22 @@ public class Lavadora_Progress : BaseCounter
             }
         }
         return null;
+    }
+
+    private RopaQuemadaSO GetRopaQuemadaSOWhithInput(LaundaryObjectSO inputLaundaryObjectSO)
+    {
+        foreach (RopaQuemadaSO ropaQuemadaSO in ropaQuemadaSOArray)
+        {
+            if (ropaQuemadaSO.input == inputLaundaryObjectSO)
+            {
+                return ropaQuemadaSO;
+            }
+        }
+        return null;
+    }
+
+    public bool IsWashed()
+    {
+        return state == State.Washed;
     }
 }

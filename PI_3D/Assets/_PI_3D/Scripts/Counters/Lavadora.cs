@@ -1,12 +1,9 @@
 using System;
 using UnityEngine;
-public class Lavadora : BaseCounter
+public class Lavadora : BaseCounter, IHasProgress
 {
-    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
-    public class OnProgressChangedEventArgs : EventArgs 
-    {
-        public float progressNormalized;
-    }
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
+   
 
 
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
@@ -24,7 +21,7 @@ public class Lavadora : BaseCounter
                 laundaryObjectParent.GetLaundaryObject().SetlaundaryObjectParent(this);
                 lavadoraProgress = 0;
                 RopaMojadaSO ropaMojadaSO1 = GetRopaMojadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
-                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs { progressNormalized = (float)lavadoraProgress / ropaMojadaSO1.lavadoraProgressMax });
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progressNormalized = (float)lavadoraProgress / ropaMojadaSO1.lavadoraProgressMax });
             }
             else
             {
@@ -54,7 +51,7 @@ public class Lavadora : BaseCounter
         {
             lavadoraProgress++;
             RopaMojadaSO ropaMojadaSO1 = GetRopaMojadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
-            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs { progressNormalized = (float)lavadoraProgress / ropaMojadaSO1.lavadoraProgressMax });
+            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progressNormalized = (float)lavadoraProgress / ropaMojadaSO1.lavadoraProgressMax });
 
             if (lavadoraProgress >= ropaMojadaSO1.lavadoraProgressMax)
             {
