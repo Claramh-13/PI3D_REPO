@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c3b0a1234404b54bbb30b02fe369611, type: 2}
+  - {fileID: 2100000, guid: b9207c3f4839bdd408e11e86a1747c07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c3b0a1234404b54bbb30b02fe369611, type: 2}
+  - {fileID: 2100000, guid: b9207c3f4839bdd408e11e86a1747c07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4188137257970547106}
   - component: {fileID: 2100643808130845400}
   m_Layer: 0
-  m_Name: "Dry_Calcet\xEDn"
+  m_Name: Sock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 4188137257970547106}
   - component: {fileID: 2100643808130845400}
   m_Layer: 0
-  m_Name: "Wet_Calcet\xEDn"
+  m_Name: Wet_Sock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
