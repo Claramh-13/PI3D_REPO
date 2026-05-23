@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502887a8c44bafe43b9992c3a27efba1, type: 3}
-  m_Name: "Wet_Pantal\xF3n"
+  m_Name: Burnt_Sock
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObjectSO
-  prefab: {fileID: 3188704024247454990, guid: ae2977b81d6234b49b7a80fb2ef67720, type: 3}
-  sprite: {fileID: 21300000, guid: 5bcada711a6a6fb40b8efa912dd4a2d1, type: 3}
-  objectName: "Wet Pantal\xF3n"
+  prefab: {fileID: 4188137257970547106, guid: 2a004dc6b5c84594cae6913eb05ffe4b, type: 3}
+  sprite: {fileID: 21300000, guid: 2c5d189194b7cfa4d8a78c50f75e29c2, type: 3}
+  objectName: Burnt_Sock

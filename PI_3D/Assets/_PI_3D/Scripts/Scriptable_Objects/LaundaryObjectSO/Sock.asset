@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502887a8c44bafe43b9992c3a27efba1, type: 3}
-  m_Name: Calcetin
+  m_Name: Sock
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObjectSO
   prefab: {fileID: 4188137257970547106, guid: bb6d06863697cd343bbdb3dc49635fd7, type: 3}
   sprite: {fileID: 21300000, guid: 2c5d189194b7cfa4d8a78c50f75e29c2, type: 3}
-  objectName: Calcetines
+  objectName: Sock

@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cdcc042b3d31340a16cafc5b42d579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LavadoraProgressBarUI
-  lavadora: {fileID: 3847667224870171415}
+  lavadora: {fileID: 0}
   barImage: {fileID: 4730684792089586910}
 --- !u!114 &245137567227114965
 MonoBehaviour:
@@ -533,7 +533,7 @@ PrefabInstance:
       addedObject: {fileID: 5520009214878027793}
     - targetCorrespondingSourceObject: {fileID: 8324468838732836037, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3847667224870171415}
+      addedObject: {fileID: 7533337608533654118}
   m_SourcePrefab: {fileID: 100100000, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
 --- !u!1 &1445835268678365165 stripped
 GameObject:
@@ -552,10 +552,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2652dfd7b590b834db0116eef9d00b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  baseCounter: {fileID: 3847667224870171415}
+  baseCounter: {fileID: 7533337608533654118}
   visualGameObjectArray:
   - {fileID: 6879928846542075644}
---- !u!114 &3847667224870171415
+--- !u!114 &7533337608533654118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -564,11 +564,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445835268678365165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641d59638df4acd47b0f121e8b7185d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 05478268b592e4846a2c0c570fedcc5e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Lavadora
+  m_EditorClassIdentifier: Assembly-CSharp::Lavadora_Progress
   counterTopPoint: {fileID: 3953882756168193298}
-  laundaryObjectSO: {fileID: 11400000, guid: b505e1523897a4948b081fd0fbdf7af9, type: 2}
   ropaMojadaSOArray:
   - {fileID: 11400000, guid: 77cbd4b66c6682d4187e637d4572cf73, type: 2}
   - {fileID: 11400000, guid: ba1550923376a154085cf3994366e192, type: 2}
