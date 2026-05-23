@@ -88,10 +88,13 @@ public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
         float playerSize = 0.3f;
         float playerHeight = 1f;
         float moveDistance = moveSpeed * Time.deltaTime;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDir, moveDistance);
+
+        Debug.Log("Input: " + inputVector + " | moveDir: " + moveDir + " | canMove: " + canMove);
         if (!canMove)
         {
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
