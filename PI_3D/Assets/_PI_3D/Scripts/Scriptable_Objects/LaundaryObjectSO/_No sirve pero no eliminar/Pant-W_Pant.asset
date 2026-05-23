@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5918fb79539639743a0b8f9a8bd975d6, type: 3}
-  m_Name: Calcetines_WetCalcetines
+  m_Name: Pant-W_Pant
   m_EditorClassIdentifier: Assembly-CSharp::RopaMojadaSO
-  input: {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
-  output: {fileID: 11400000, guid: b505e1523897a4948b081fd0fbdf7af9, type: 2}
-  lavadoraProgressMax: 3
+  input: {fileID: 11400000, guid: bdbe6aed11069cd4aa6dc985ff114498, type: 2}
+  output: {fileID: 11400000, guid: b630275da5fc1a54bb5d5322ed3ffc88, type: 2}
