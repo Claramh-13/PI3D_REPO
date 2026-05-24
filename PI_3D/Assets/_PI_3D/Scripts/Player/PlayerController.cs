@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
     }
     private void GameInput_OnInteractAlternateAction(object sender, System.EventArgs e)
     {
+        Debug.Log("InteractAlternate pulsado, selectedCounter: " + selectedCounter);
         if (selectedCounter != null)
         {
             selectedCounter.InteractAlternate(this);
@@ -63,8 +64,10 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
         float interactionInstance = 2f;
         if (Physics.Raycast(transform.position + Vector3.up * 0.5f, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
+            Debug.Log("Detectado: " + raycasthit.transform.name);
             if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
+                Debug.Log("Tiene BaseCounter: true");
                 if (baseCounter != selectedCounter)
                 {
                     SetSelectedCounter(baseCounter);
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
             }
             else
             {
+                Debug.Log("Tiene BaseCounter: false");
                 SetSelectedCounter(null);
             }
         }
@@ -84,22 +88,25 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
         float playerSize = 0.3f;
         float playerHeight = 1f;
         float moveDistance = moveSpeed * Time.deltaTime;
-        bool canMove = !Physics.CapsuleCast(transform.position + Vector3.up * 0.5f, transform.position + Vector3.up * playerHeight, playerSize, moveDir, moveDistance);
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDir, moveDistance);
+
+        Debug.Log("Input: " + inputVector + " | moveDir: " + moveDir + " | canMove: " + canMove);
         if (!canMove)
         {
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
             Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-            canMove = !Physics.CapsuleCast(transform.position + Vector3.up * 0.5f, transform.position + Vector3.up * playerHeight, playerSize, moveDirX, moveDistance);
+            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirX, moveDistance);
             if (canMove)
             {
                 moveDir = moveDirX;
             }
             else
             {
-                canMove = !Physics.CapsuleCast(transform.position + Vector3.up * 0.5f, transform.position + Vector3.up * playerHeight, playerSize, moveDirZ, moveDistance);
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirZ, moveDistance);
                 if (canMove)
                 {
                     moveDir = moveDirZ;
@@ -108,7 +115,7 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
         }
         if (canMove)
         {
-            GetComponent<Rigidbody>().MovePosition(transform.position + moveDir * moveSpeed * Time.deltaTime);
+            transform.position += moveDir * moveSpeed * Time.deltaTime;
         }
         isWalking = moveDir != Vector3.zero;
         float rotateSpeed = 10f;
@@ -124,4 +131,6 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
     public LaundaryObject GetLaundaryObject() { return laundaryObject; }
     public void ClearLaundaryObject() { laundaryObject = null; }
     public bool HasLaundaryObject() { return laundaryObject != null; }
+
+    
 }
