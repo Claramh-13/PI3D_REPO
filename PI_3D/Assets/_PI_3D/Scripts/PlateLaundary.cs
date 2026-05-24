@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 public class PlateLaundaryObject : LaundaryObject
 {
-    public event EventHandler OnRopaAdded;
-    public class OnIngredientAddedEventArgs : EventArgs 
+    public event EventHandler<OnIngredientAddedEventArgs> OnRopaAdded;
+    public class OnIngredientAddedEventArgs : EventArgs
     {
         public LaundaryObjectSO LaundaryObjectSO;
     }
-    
+
     [SerializeField] private List<LaundaryObjectSO> validRopaSOList;
     private List<LaundaryObjectSO> laundaryObjectSOList;
 
@@ -24,17 +23,13 @@ public class PlateLaundaryObject : LaundaryObject
         {
             return false;
         }
-
-        if (laundaryObjectSOList.Contains(laundaryObjectSO)) 
-        
+        if (laundaryObjectSOList.Contains(laundaryObjectSO))
         {
-         return false ;
+            return false;
         }
         else
         {
-
             laundaryObjectSOList.Add(laundaryObjectSO);
-
             OnRopaAdded?.Invoke(this, new OnIngredientAddedEventArgs { LaundaryObjectSO = laundaryObjectSO });
         }
         return true;

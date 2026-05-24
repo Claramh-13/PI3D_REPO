@@ -153,9 +153,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 583582a57ddca8f47828d8121a8e583f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7646770873744656556}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 583582a57ddca8f47828d8121a8e583f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5890508953587495298}
   m_SourcePrefab: {fileID: 100100000, guid: 583582a57ddca8f47828d8121a8e583f, type: 3}
 --- !u!4 &7420006874140136715 stripped
@@ -168,24 +165,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 583582a57ddca8f47828d8121a8e583f, type: 3}
   m_PrefabInstance: {fileID: 7022116279090229984}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7646770873744656556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7904653374147268529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5526a86a1a5676843873d93653148912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 7
-  gameInput: {fileID: 0}
-  countersLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  laundaryObjectHoldPoint: {fileID: 3099681264537613708}
 --- !u!95 &5890508953587495298
 Animator:
   serializedVersion: 7

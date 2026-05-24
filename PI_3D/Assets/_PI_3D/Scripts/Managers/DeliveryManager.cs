@@ -47,8 +47,9 @@ public class DeliveryManager : MonoBehaviour
 
     public void DeliverRecipe(PlateLaundaryObject plateLaundaryObject)
     {
-        List<LaundaryObjectSO> plateLaundaryObjectSOList = plateLaundaryObject.GetLaundaryObjectSOList();
-
+        Debug.Log("DeliverRecipe llamado, recetas esperando: " + waitingRecipeSOList.Count);
+        Debug.Log("Objetos en bandeja: " + plateLaundaryObject.GetLaundaryObjectSOList().Count);
+        List<LaundaryObjectSO> plateLaundaryObjectSOList = plateLaundaryObject.GetLaundaryObjectSOList(); 
         for (int i = 0; i < waitingRecipeSOList.Count; i++)
         {
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];

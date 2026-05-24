@@ -62,13 +62,13 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
         {
             lastInteractDir = moveDir;
         }
-        float interactionInstance = 2f;
+        float interactionInstance = 4f;
         if (Physics.Raycast(transform.position + Vector3.up * 0.5f, lastInteractDir, out RaycastHit raycasthit, interactionInstance, countersLayerMask))
         {
-            Debug.Log("Detectado: " + raycasthit.transform.name);
+            Debug.Log("Raycast detecta: " + raycasthit.transform.name);
+            Debug.Log("Tiene BaseCounter: " + raycasthit.transform.TryGetComponent(out BaseCounter bc));
             if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                Debug.Log("Tiene BaseCounter: true");
                 if (baseCounter != selectedCounter)
                 {
                     SetSelectedCounter(baseCounter);
@@ -76,7 +76,6 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
             }
             else
             {
-                Debug.Log("Tiene BaseCounter: false");
                 SetSelectedCounter(null);
             }
         }

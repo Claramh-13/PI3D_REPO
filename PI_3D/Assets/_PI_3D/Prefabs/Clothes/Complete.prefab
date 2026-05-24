@@ -70,6 +70,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e12ed0eb242be949b6a73d8ce2c1d29, type: 3}
+--- !u!1 &67748893172091017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6280881626389001372, guid: 1e12ed0eb242be949b6a73d8ce2c1d29, type: 3}
+  m_PrefabInstance: {fileID: 6330545732940168213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7909971762877220279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4188137257970547106, guid: 1e12ed0eb242be949b6a73d8ce2c1d29, type: 3}
@@ -145,6 +150,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca39b16c9bbfc94b868e576e2c038a8, type: 3}
+--- !u!1 &6173176100334318210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2813445501394917300, guid: 3ca39b16c9bbfc94b868e576e2c038a8, type: 3}
+  m_PrefabInstance: {fileID: 8259842725160625462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6836559171629606968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3188704024247454990, guid: 3ca39b16c9bbfc94b868e576e2c038a8, type: 3}
@@ -232,6 +242,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3146275709373999155}
   m_SourcePrefab: {fileID: 100100000, guid: ed18df4bb4a563647ae2556048359762, type: 3}
+--- !u!1 &56798150260296633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: ed18df4bb4a563647ae2556048359762, type: 3}
+  m_PrefabInstance: {fileID: 8360179891298683484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8327131712232730039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed18df4bb4a563647ae2556048359762, type: 3}
@@ -255,3 +270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlateCompleteVisual
   plateLaundaryObject: {fileID: 540743962042906688, guid: ea5eb9769a9f0e9478d8402b5eb03f9f, type: 3}
+  laundaryObjectSOGameObjectList:
+  - laundaryObjectSO: {fileID: 11400000, guid: 247070f757205d24191b898a4ea7afbe, type: 2}
+    gameObject: {fileID: 6173176100334318210}
+  - laundaryObjectSO: {fileID: 11400000, guid: 9dcde45c45475d04f8cdfb5d14ecc558, type: 2}
+    gameObject: {fileID: 67748893172091017}
+  - laundaryObjectSO: {fileID: 11400000, guid: 1f71418700ee4384f8f6d9295a6e880a, type: 2}
+    gameObject: {fileID: 56798150260296633}
