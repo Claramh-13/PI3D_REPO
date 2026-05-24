@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SockLaundry
   m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
   laundaryObjectSOList:
-  - {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
+  - {fileID: 11400000, guid: 9dcde45c45475d04f8cdfb5d14ecc558, type: 2}
   recipeName: SockLaundry

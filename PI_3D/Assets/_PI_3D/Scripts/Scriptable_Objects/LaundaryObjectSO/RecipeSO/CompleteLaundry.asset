@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CompleteLaundry
   m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
   laundaryObjectSOList:
-  - {fileID: 11400000, guid: dbb99a6071a5fb24e9e3c5bbfd333b74, type: 2}
-  - {fileID: 11400000, guid: bdbe6aed11069cd4aa6dc985ff114498, type: 2}
+  - {fileID: 11400000, guid: 9dcde45c45475d04f8cdfb5d14ecc558, type: 2}
+  - {fileID: 11400000, guid: 1f71418700ee4384f8f6d9295a6e880a, type: 2}
+  - {fileID: 11400000, guid: 247070f757205d24191b898a4ea7afbe, type: 2}
   recipeName: Laundry
