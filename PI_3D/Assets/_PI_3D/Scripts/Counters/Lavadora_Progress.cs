@@ -104,6 +104,10 @@ public class Lavadora_Progress : BaseCounter, IHasProgress
             {
                 GetLaundaryObject().SetlaundaryObjectParent(laundaryObjectParent);
                 state = State.Idle;
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = 0f
+                });
             }
         }
     }
