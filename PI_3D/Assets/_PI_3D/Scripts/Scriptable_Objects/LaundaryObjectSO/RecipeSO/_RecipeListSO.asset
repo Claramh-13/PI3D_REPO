@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: _RecipeListSO
   m_EditorClassIdentifier: Assembly-CSharp::RecipeListSO
   recipeSOList:
-  - {fileID: 11400000, guid: 07eee5b8d8c093b43a8fe88648c2e1f5, type: 2}
+  - {fileID: 11400000, guid: 242234f1b4a583b4897b62c3e9b45a85, type: 2}
+  - {fileID: 11400000, guid: db3d9be391a6b434bbea6e5524e7e1cd, type: 2}
   - {fileID: 11400000, guid: 50fe48fb7f690604daa12ce54ec54b19, type: 2}
+  - {fileID: 11400000, guid: 07eee5b8d8c093b43a8fe88648c2e1f5, type: 2}
   - {fileID: 11400000, guid: 20bcbf1cf2211e1438455fc0845fe17e, type: 2}
+  - {fileID: 11400000, guid: 7175a26b88986204a8d6519591197f7c, type: 2}
