@@ -518,6 +518,7 @@ public partial class @Player_Input_Actions: IInputActionCollection2, IDisposable
             AddCallbacks(instance);
         }
     }
+    }
     /// <summary>
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
