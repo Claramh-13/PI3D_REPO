@@ -1,46 +1,42 @@
 using UnityEngine;
-
 public class LaundaryObject : MonoBehaviour
 {
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
-
     private ILaundaryObjectParent laundaryObjectParent;
     public LaundaryObjectSO GetLaundaryObjectSO() { return laundaryObjectSO; }
-    public void SetlaundaryObjectParent(ILaundaryObjectParent laundaryObjectParent) 
+    public void SetlaundaryObjectParent(ILaundaryObjectParent laundaryObjectParent)
     {
         if (this.laundaryObjectParent != null) { this.laundaryObjectParent.ClearLaundaryObject(); }
-
-        this.laundaryObjectParent = laundaryObjectParent; 
+        this.laundaryObjectParent = laundaryObjectParent;
         if (laundaryObjectParent.HasLaundaryObject()) { Debug.LogError("ILaundaryObjectParent alredy has a LaundaryObject"); }
         laundaryObjectParent.SetLaundaryObject(this);
-
         transform.parent = laundaryObjectParent.GetLaundaryObjectFollowTransform();
         transform.localPosition = Vector3.zero;
     }
     public ILaundaryObjectParent GetLaundaryObjectParent() { return laundaryObjectParent; }
-
-    public void DestroySelf() 
+    public void DestroySelf()
     {
-      laundaryObjectParent.ClearLaundaryObject() ;
+        laundaryObjectParent.ClearLaundaryObject();
         Destroy(gameObject);
-    
     }
-
-
-    public static LaundaryObject SpawnLaundaryObject(LaundaryObjectSO laundaryObjectSO, ILaundaryObjectParent laundaryObjectParent) 
+    public bool TryGetPlate(out PlateLaundaryObject plateLaundaryObject)
+    {
+        if (this is PlateLaundaryObject)
+        {
+            plateLaundaryObject = this as PlateLaundaryObject;
+            return true;
+        }
+        else
+        {
+            plateLaundaryObject = null;
+            return false;
+        }
+    }
+    public static LaundaryObject SpawnLaundaryObject(LaundaryObjectSO laundaryObjectSO, ILaundaryObjectParent laundaryObjectParent)
     {
         Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab);
         LaundaryObject laundaryObject = laudaryObjectTransform.GetComponent<LaundaryObject>();
         laundaryObject.SetlaundaryObjectParent(laundaryObjectParent);
-
         return laundaryObject;
-
     }
-
-    public virtual bool TryGetPlate(out PlateLaundaryObject plateLaundaryObject)
-    {
-        plateLaundaryObject = null;
-        return false;
-    }
-
 }

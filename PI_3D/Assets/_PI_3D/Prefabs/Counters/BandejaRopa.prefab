@@ -74,14 +74,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1714e2f8dc527e34b87d359f6bce5e38, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5137521204324867199}
+      addedObject: {fileID: 540743962042906688}
   m_SourcePrefab: {fileID: 100100000, guid: 1714e2f8dc527e34b87d359f6bce5e38, type: 3}
 --- !u!1 &8520399075337426103 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1714e2f8dc527e34b87d359f6bce5e38, type: 3}
   m_PrefabInstance: {fileID: 8863048886621628902}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5137521204324867199
+--- !u!114 &540743962042906688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8520399075337426103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f9f66579c5b6846ae8a499d2c7beab, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bd9df3134c82564f8e27e65861d75da, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LaundaryObject
+  m_EditorClassIdentifier: Assembly-CSharp::PlateLaundaryObject
   laundaryObjectSO: {fileID: 11400000, guid: abd2e9261910aa047ae7e48170d75464, type: 2}
+  validRopaSOList:
+  - {fileID: 11400000, guid: 247070f757205d24191b898a4ea7afbe, type: 2}
+  - {fileID: 11400000, guid: 9dcde45c45475d04f8cdfb5d14ecc558, type: 2}
+  - {fileID: 11400000, guid: 1f71418700ee4384f8f6d9295a6e880a, type: 2}

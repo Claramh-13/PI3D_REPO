@@ -55,10 +55,6 @@ public class Lavadora_Progress : BaseCounter, IHasProgress
                     break;
 
                 case State.Washed:
-              
-                    Debug.Log("Estado Washed, burningTimer: " + burningTimer);
-                   
-
                     RopaQuemadaSO ropaQuemadaSO = GetRopaQuemadaSOWhithInput(GetLaundaryObject().GetLaundaryObjectSO());
                     if (ropaQuemadaSO == null) return;
                     burningTimer += Time.deltaTime;

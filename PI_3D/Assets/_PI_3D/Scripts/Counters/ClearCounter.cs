@@ -2,20 +2,16 @@ using UnityEngine;
 public class ClearCounter : BaseCounter
 {
     [SerializeField] private LaundaryObjectSO laundaryObjectSO;
-
     public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
         if (!HasLaundaryObject())
         {
-            // No hay objeto en la encimera
             if (laundaryObjectParent.HasLaundaryObject())
             {
-                // El jugador lleva algo, lo pone en la encimera
                 laundaryObjectParent.GetLaundaryObject().SetlaundaryObjectParent(this);
             }
             else
             {
-                // El jugador no lleva nada, spawneamos objeto
                 if (laundaryObjectSO != null)
                 {
                     Transform laudaryObjectTransform = Instantiate(laundaryObjectSO.prefab);
@@ -25,14 +21,18 @@ public class ClearCounter : BaseCounter
         }
         else
         {
-            // Hay un objeto en la encimera
             if (laundaryObjectParent.HasLaundaryObject())
             {
-                // El jugador lleva algo, no hacemos nada
+                if (laundaryObjectParent.GetLaundaryObject().TryGetPlate(out PlateLaundaryObject plateLaundaryObject))
+                {
+                    if (plateLaundaryObject.TryAddRopa(GetLaundaryObject().GetLaundaryObjectSO()))
+                    {
+                        GetLaundaryObject().DestroySelf();
+                    }
+                }
             }
             else
             {
-                // El jugador no lleva nada, coge el objeto
                 GetLaundaryObject().SetlaundaryObjectParent(laundaryObjectParent);
             }
         }
