@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-public class Player_Controller : MonoBehaviour, ILaundaryObjectParent
+public class PlayerController : MonoBehaviour, ILaundaryObjectParent
 {
-    public static Player_Controller Instance { get; private set; }
+    public static PlayerController Instance { get; private set; }
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
