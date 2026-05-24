@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816512994425460446}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0016781588, y: 0.719157, z: -0.0004500142, w: 0.6948455}
+  m_LocalRotation: {x: -0.0016806815, y: 0.7152085, z: -0.00044049858, w: 0.69890904}
   m_LocalPosition: {x: -0.009, y: 0.887, z: 0.01}
   m_LocalScale: {x: 0.51039, y: 0.03284093, z: 0.8533489}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8487407662235841123}
-  m_LocalEulerAnglesHint: {x: -0.097, y: 91.97, z: -0.174}
+  m_LocalEulerAnglesHint: {x: -0.099, y: 91.321, z: -0.173}
 --- !u!33 &1653211548244920706
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2652dfd7b590b834db0116eef9d00b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounter
-  baseCounter: {fileID: 427535524353267916}
+  baseCounter: {fileID: 2362858180877074133}
   visualGameObjectArray:
   - {fileID: 5756744355523806201}
 --- !u!1001 &6187678149471660515
@@ -331,13 +331,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 471591c3e0f375740abb732b23db65ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8559433613889783884}
   m_SourcePrefab: {fileID: 100100000, guid: 471591c3e0f375740abb732b23db65ff, type: 3}
 --- !u!4 &5932847109644029448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 471591c3e0f375740abb732b23db65ff, type: 3}
   m_PrefabInstance: {fileID: 6187678149471660515}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6421681923784529074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 471591c3e0f375740abb732b23db65ff, type: 3}
+  m_PrefabInstance: {fileID: 6187678149471660515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8559433613889783884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421681923784529074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90a2bd00be2ff64192c40e7f6a78908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatesCounterVisual
+  counterTopPoint: {fileID: 3953882756168193298}
+  plateVisualPrefab: {fileID: 9040230218219752973, guid: 9bcb321727f28c743a2eac428f86fb43, type: 3}
+  platesCounter: {fileID: 2362858180877074133}
 --- !u!1001 &7464390694815433512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,9 +409,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5857446586812339770, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.291
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857446586812339770, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.089
+      objectReference: {fileID: 0}
     - target: {fileID: 8324468838732836037, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
       propertyPath: m_Name
-      value: Plaates counter
+      value: Plates counter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -405,17 +436,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8324468838732836037, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 427535524353267916}
-    - targetCorrespondingSourceObject: {fileID: 8324468838732836037, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5520009214878027793}
+      addedObject: {fileID: 2362858180877074133}
   m_SourcePrefab: {fileID: 100100000, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
 --- !u!1 &1445835268678365165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8324468838732836037, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}
   m_PrefabInstance: {fileID: 7464390694815433512}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &427535524353267916
+--- !u!114 &2362858180877074133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,26 +452,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445835268678365165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01f8399c97cf8e41b750b281ad76981, type: 3}
+  m_Script: {fileID: 11500000, guid: 61b035b6554103b40ac97da3651b5609, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
+  m_EditorClassIdentifier: Assembly-CSharp::PlatesCounter
   counterTopPoint: {fileID: 3953882756168193298}
-  laundaryObjectSO: {fileID: 11400000, guid: abd2e9261910aa047ae7e48170d75464, type: 2}
---- !u!114 &5520009214878027793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445835268678365165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2652dfd7b590b834db0116eef9d00b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  baseCounter: {fileID: 427535524353267916}
-  visualGameObjectArray:
-  - {fileID: 5756744355523806201}
+  plateLaundaryObjectSO: {fileID: 11400000, guid: abd2e9261910aa047ae7e48170d75464, type: 2}
 --- !u!4 &3953882756168193298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5857446586812339770, guid: bb44e77fef55e434fa5a1ec5fba1d0ce, type: 3}

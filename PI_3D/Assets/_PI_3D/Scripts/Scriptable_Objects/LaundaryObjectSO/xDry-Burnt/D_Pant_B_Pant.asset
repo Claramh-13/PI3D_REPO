@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8b101cecc7bb2d44a98a5fef8d10b62, type: 3}
-  m_Name: D_Pant-B_Pant
+  m_Name: D_Pant_B_Pant
   m_EditorClassIdentifier: Assembly-CSharp::RopaQuemadaSO
   input: {fileID: 11400000, guid: 247070f757205d24191b898a4ea7afbe, type: 2}
   output: {fileID: 11400000, guid: 083eeff551b27774fbd5da061033a9a8, type: 2}

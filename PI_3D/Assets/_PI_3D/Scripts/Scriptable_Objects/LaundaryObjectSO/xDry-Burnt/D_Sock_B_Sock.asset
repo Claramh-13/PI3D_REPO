@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8b101cecc7bb2d44a98a5fef8d10b62, type: 3}
-  m_Name: D_Sock-B_Sock
+  m_Name: D_Sock_B_Sock
   m_EditorClassIdentifier: Assembly-CSharp::RopaQuemadaSO
   input: {fileID: 11400000, guid: 9dcde45c45475d04f8cdfb5d14ecc558, type: 2}
   output: {fileID: 11400000, guid: 12422a7b19352ab4f9bf556152786acf, type: 2}

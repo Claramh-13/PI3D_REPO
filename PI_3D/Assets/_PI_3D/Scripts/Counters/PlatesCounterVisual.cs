@@ -1,16 +1,17 @@
 using UnityEngine;
-
 public class PlatesCounterVisual : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Transform counterTopPoint;
+    [SerializeField] private Transform plateVisualPrefab;
+    [SerializeField] private PlatesCounter platesCounter;
+
+    private void Start()
     {
-        
+        platesCounter.OnPlateSpawned += PlatesCounter_OnPlateSpawned;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlatesCounter_OnPlateSpawned(object sender, System.EventArgs e)
     {
-        
+        Transform plateVisualTransform = Instantiate(plateVisualPrefab, counterTopPoint);
     }
 }

@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlatesCounter : BaseCounter
 {
+    public event EventHandler OnPlateSpawned;
+    
     [SerializeField] private LaundaryObjectSO plateLaundaryObjectSO;
     private float spawnPlatetimer;
     private float spawnPlateTimeMax = 4f;
@@ -19,6 +22,8 @@ public class PlatesCounter : BaseCounter
             if(platesSpawnedAmount < platesSpawnedAmountMax)
             {
                 platesSpawnedAmount++;
+
+                OnPlateSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
     }
