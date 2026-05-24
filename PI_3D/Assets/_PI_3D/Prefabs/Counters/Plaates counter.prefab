@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
   counterTopPoint: {fileID: 3953882756168193298}
-  laundaryObjectSO: {fileID: 0}
+  laundaryObjectSO: {fileID: 11400000, guid: abd2e9261910aa047ae7e48170d75464, type: 2}
 --- !u!114 &5520009214878027793
 MonoBehaviour:
   m_ObjectHideFlags: 0

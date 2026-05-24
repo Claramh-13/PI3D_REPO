@@ -1,9 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+
+    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeSucces;
+    public event EventHandler OnRecipeFailed;  
+
     public static DeliveryManager Instance { get; private set; }
     [SerializeField] private RecipeListSO recipeListSO;
 
@@ -79,6 +86,9 @@ public class DeliveryManager : MonoBehaviour
                     //Player ddi the correct recipe
                     Debug.Log("Player delivered the correct recipe!");
                     waitingRecipeSOList.RemoveAt(i);
+
+                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                     OnRecipeSucces?.Invoke(this, EventArgs.Empty);
                     return;
                 }
 
@@ -87,7 +97,13 @@ public class DeliveryManager : MonoBehaviour
 
         //No matches found
         //Player no deliver correctly
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
         Debug.Log("Player did not deliver the recipe correctly");
+    }
+
+    public List<RecipeSO> GetWaitingRecipeSOList()
+    {
+        return waitingRecipeSOList;
     }
 
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502887a8c44bafe43b9992c3a27efba1, type: 3}
   m_Name: Plate
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObjectSO
-  prefab: {fileID: 0}
+  prefab: {fileID: 9040230218219752973, guid: ea5eb9769a9f0e9478d8402b5eb03f9f, type: 3}
   sprite: {fileID: 0}
   objectName: Plate
