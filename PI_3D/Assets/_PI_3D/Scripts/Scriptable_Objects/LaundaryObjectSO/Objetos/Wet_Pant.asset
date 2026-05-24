@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502887a8c44bafe43b9992c3a27efba1, type: 3}
   m_Name: Wet_Pant
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObjectSO
-  prefab: {fileID: 3188704024247454990, guid: ae2977b81d6234b49b7a80fb2ef67720, type: 3}
+  prefab: {fileID: 3188704024247454990, guid: 1285ef7dfbca5c045b92343f5df48fc7, type: 3}
   sprite: {fileID: 21300000, guid: 5bcada711a6a6fb40b8efa912dd4a2d1, type: 3}
   objectName: Wet Pant

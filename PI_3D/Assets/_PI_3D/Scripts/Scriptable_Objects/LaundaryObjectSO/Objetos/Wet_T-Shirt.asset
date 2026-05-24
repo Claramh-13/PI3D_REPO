@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502887a8c44bafe43b9992c3a27efba1, type: 3}
-  m_Name: Dry_Pant
+  m_Name: Wet_T-Shirt
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObjectSO
-  prefab: {fileID: 3188704024247454990, guid: 3ca39b16c9bbfc94b868e576e2c038a8, type: 3}
-  sprite: {fileID: 21300000, guid: 5bcada711a6a6fb40b8efa912dd4a2d1, type: 3}
-  objectName: Wet Pant
+  prefab: {fileID: 8327131712232730039, guid: fd127ac4f714be642a9285a637fdf8a5, type: 3}
+  sprite: {fileID: 21300000, guid: 2c5d189194b7cfa4d8a78c50f75e29c2, type: 3}
+  objectName: Wet_T-Shirt
