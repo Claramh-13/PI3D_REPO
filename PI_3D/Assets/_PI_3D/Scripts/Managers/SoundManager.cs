@@ -6,18 +6,18 @@ public class SoundManager : MonoBehaviour
 {
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeSucces += DeliveryManager_OnRecipeSucces;
+        //DeliveryManager.Instance.OnRecipeSucces += DeliveryManager_OnRecipeSucces;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
     {
-        throw new System.NotImplemnentedException();
+        //throw new System.NotImplemnentedException();
     }
 
     private void IDeliveryManager_OnRecipeSucces(object sender, System.EventArgs e)
     {
-        throw new System.NotImplemnentedException();
+        //throw new System.NotImplemnentedException();
     }
 
     private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)

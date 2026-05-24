@@ -37,4 +37,9 @@ public class LaundaryObject : MonoBehaviour
 
     }
 
+    public bool TryGetPlate(out PlateLaundaryObject plateLaundaryObject)
+    {
+        plateLaundaryObject = GetComponent<PlateLaundaryObject>();
+        return plateLaundaryObject != null;
+    }
 }
