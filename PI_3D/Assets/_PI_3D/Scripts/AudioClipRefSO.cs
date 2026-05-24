@@ -1,16 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioClipRefSO : MonoBehaviour
+[CreateAssetMenu(fileName = "AudioClipRefSO", menuName = "Audio/AudioClipRef")]
+public class AudioClipRefSO : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AudioClip[] dryer;
+    public AudioClip[] objectDrop;
+    public AudioClip[] objectPickUp;
+    public AudioClip[] footstep;
+    public AudioClip[] wachinemachine;
+    public AudioClip[] deliverySucces;
+    public AudioClip[] deliveryFail;
 }

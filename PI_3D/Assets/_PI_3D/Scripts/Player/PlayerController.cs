@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform laundaryObjectHoldPoint;
+
     private bool isWalking;
     private Vector3 lastInteractDir;
     private BaseCounter selectedCounter;
@@ -92,6 +93,15 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
         float playerSize = 0.3f;
         float playerHeight = 1f;
         float moveDistance = moveSpeed * Time.deltaTime;
+
+        //ignora collisiones del player
+        int layermask = LayerMask.GetMask("Player");
+
+        //Subimos la capsula
+        Vector3 point1 = transform.position + Vector3.up * 0.2f;
+        Vector3 point2 = point1 + Vector3.up * playerHeight;
+
+
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDir, moveDistance);
 
         Debug.Log("Input: " + inputVector + " | moveDir: " + moveDir + " | canMove: " + canMove);
