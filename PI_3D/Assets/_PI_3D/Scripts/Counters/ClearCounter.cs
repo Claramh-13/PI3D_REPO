@@ -30,6 +30,13 @@ public class ClearCounter : BaseCounter
                         GetLaundaryObject().DestroySelf();
                     }
                 }
+                else if (GetLaundaryObject().TryGetPlate(out PlateLaundaryObject counterPlateLaundaryObject))
+                {
+                    if (counterPlateLaundaryObject.TryAddRopa(laundaryObjectParent.GetLaundaryObject().GetLaundaryObjectSO()))
+                    {
+                        laundaryObjectParent.GetLaundaryObject().DestroySelf();
+                    }
+                }
             }
             else
             {
