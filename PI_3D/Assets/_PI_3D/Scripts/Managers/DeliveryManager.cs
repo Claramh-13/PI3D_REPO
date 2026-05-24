@@ -38,8 +38,6 @@ public class DeliveryManager : MonoBehaviour
                 RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
                 Debug.Log(waitingRecipeSO.recipeName);
                 waitingRecipeSOList.Add(waitingRecipeSO);
-
-                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
 
         }
@@ -86,7 +84,7 @@ public class DeliveryManager : MonoBehaviour
                 {
 
                     //Player ddi the correct recipe
-                    
+                    Debug.Log("Player delivered the correct recipe!");
                     waitingRecipeSOList.RemoveAt(i);
 
                      OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
@@ -100,15 +98,13 @@ public class DeliveryManager : MonoBehaviour
         //No matches found
         //Player no deliver correctly
         OnRecipeFailed?.Invoke(this, EventArgs.Empty);
-        
+        Debug.Log("Player did not deliver the recipe correctly");
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()
     {
         return waitingRecipeSOList;
     }
-
-
 
 
 }
