@@ -64,7 +64,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dry_Sock
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2100643808130845400, guid: 1e12ed0eb242be949b6a73d8ce2c1d29, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -138,7 +139,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3798597847544577852, guid: 3ca39b16c9bbfc94b868e576e2c038a8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -228,7 +230,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed18df4bb4a563647ae2556048359762, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3256403629548429549}
+      addedObject: {fileID: 3146275709373999155}
   m_SourcePrefab: {fileID: 100100000, guid: ed18df4bb4a563647ae2556048359762, type: 3}
 --- !u!4 &8327131712232730039 stripped
 Transform:
@@ -240,7 +242,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed18df4bb4a563647ae2556048359762, type: 3}
   m_PrefabInstance: {fileID: 8360179891298683484}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3256403629548429549
+--- !u!114 &3146275709373999155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8702144704691959565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f9f66579c5b6846ae8a499d2c7beab, type: 3}
+  m_Script: {fileID: 11500000, guid: b9683e2dffd103f46b89216d7d593134, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LaundaryObject
-  laundaryObjectSO: {fileID: 11400000, guid: 1f71418700ee4384f8f6d9295a6e880a, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::PlateCompleteVisual
+  plateLaundaryObject: {fileID: 540743962042906688, guid: ea5eb9769a9f0e9478d8402b5eb03f9f, type: 3}
