@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 965456768789616826}
   - component: {fileID: 7280109353065161672}
   m_Layer: 6
-  m_Name: ContainerVariant
+  m_Name: Sock_Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ff286b6fe43d43d40bead1f6f7dc6d8d, type: 2}
+      objectReference: {fileID: 2100000, guid: a325c3ac348bb2d41aedff083db5c720, type: 2}
     - target: {fileID: 919132149155446097, guid: 6ea0a112e64442e4a900167dfa95f411, type: 3}
       propertyPath: m_Name
       value: 'Basket '
