@@ -72,7 +72,7 @@ using UnityEngine.InputSystem.Utilities;
 /// }
 /// </code>
 /// </example>
-public partial class @Player_Input_Actions: IInputActionCollection2, IDisposable
+public partial class @Player_Input_Actions : IInputActionCollection2, IDisposable
 {
     /// <summary>
     /// Provides access to the underlying asset instance.
@@ -518,7 +518,7 @@ public partial class @Player_Input_Actions: IInputActionCollection2, IDisposable
             AddCallbacks(instance);
         }
     }
-    }
+
     /// <summary>
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
@@ -560,3 +560,4 @@ public partial class @Player_Input_Actions: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
     }
 }
+
