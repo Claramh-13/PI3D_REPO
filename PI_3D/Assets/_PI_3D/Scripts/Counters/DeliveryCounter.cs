@@ -1,23 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class DeliveryCounter : BaseCounter
 {
-    
-    public override void Interact(PlayerController player)
+    public override void Interact(ILaundaryObjectParent laundaryObjectParent)
     {
-        if (player.HasLaundaryObject())
+        if (laundaryObjectParent.HasLaundaryObject())
         {
-            if(player.GetLaundaryObject().TryGetPlate(out PlateLaundaryObject platelaundaryObject))
-            {
-                //only accept plates
-
-                DeliveryManager.Instance.DeliverRecipe(platelaundaryObject);
-
-                player.GetLaundaryObject().DestroySelf();
-            }
-
+            // TODO: implementar entrega con cesta
+            // if (laundaryObjectParent.GetLaundaryObject().TryGetPlate(out PlateLaundaryObject platelaundaryObject))
+            // {
+            //     DeliveryManager.Instance.DeliverRecipe(platelaundaryObject);
+            //     laundaryObjectParent.GetLaundaryObject().DestroySelf();
+            // }
         }
     }
 }
