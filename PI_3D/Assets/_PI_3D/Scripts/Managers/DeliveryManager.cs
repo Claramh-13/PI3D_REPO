@@ -47,7 +47,7 @@ public class DeliveryManager : MonoBehaviour
     {
         List<LaundaryObjectSO> plateLaundaryObjectSOList = plateLaundaryObject.GetLaundaryObjectSOList();
 
-        for (int i = 0; i < waitingRecipeSOList.Count; ++i)
+        for (int i = 0; i < waitingRecipeSOList.Count; i++)
         {
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
 

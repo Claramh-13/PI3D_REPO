@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 public class DeliveryCounter : BaseCounter
 {
@@ -5,12 +7,12 @@ public class DeliveryCounter : BaseCounter
     {
         if (laundaryObjectParent.HasLaundaryObject())
         {
-            // TODO: implementar entrega con cesta
-            // if (laundaryObjectParent.GetLaundaryObject().TryGetPlate(out PlateLaundaryObject platelaundaryObject))
-            // {
-            //     DeliveryManager.Instance.DeliverRecipe(platelaundaryObject);
-            //     laundaryObjectParent.GetLaundaryObject().DestroySelf();
-            // }
+            
+             if (laundaryObjectParent.GetLaundaryObject().TryGetPlate(out PlateLaundaryObject platelaundaryObject))
+             {
+                 DeliveryManager.Instance.DeliverRecipe(platelaundaryObject);
+                 laundaryObjectParent.GetLaundaryObject().DestroySelf();
+             }
         }
     }
 }

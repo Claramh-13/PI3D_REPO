@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour, ILaundaryObjectParent
         float moveDistance = moveSpeed * Time.deltaTime;
 
         //ignora collisiones del player
-        int layermask = LayerMask.GetMask("Player");
+        //int layermask = LayerMask.GetMask("Player");
 
         //Subimos la capsula
         Vector3 point1 = transform.position + Vector3.up * 0.2f;

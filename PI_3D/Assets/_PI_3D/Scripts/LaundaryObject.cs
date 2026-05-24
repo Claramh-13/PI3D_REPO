@@ -37,4 +37,10 @@ public class LaundaryObject : MonoBehaviour
 
     }
 
+    public virtual bool TryGetPlate(out PlateLaundaryObject plateLaundaryObject)
+    {
+        plateLaundaryObject = null;
+        return false;
+    }
+
 }
