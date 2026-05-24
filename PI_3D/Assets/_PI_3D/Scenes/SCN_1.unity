@@ -5034,6 +5034,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lavadora_Progress (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533337608533654118, guid: 0fdb5880342a1e94eb60440a252fa52a, type: 3}
+      propertyPath: ropaMojadaSOArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533337608533654118, guid: 0fdb5880342a1e94eb60440a252fa52a, type: 3}
+      propertyPath: ropaQuemadaSOArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533337608533654118, guid: 0fdb5880342a1e94eb60440a252fa52a, type: 3}
+      propertyPath: 'ropaMojadaSOArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533337608533654118, guid: 0fdb5880342a1e94eb60440a252fa52a, type: 3}
+      propertyPath: 'ropaQuemadaSOArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d098f348038b0848a18198e8df0a96b, type: 2}
     - target: {fileID: 8487407662235841123, guid: 0fdb5880342a1e94eb60440a252fa52a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6937299
