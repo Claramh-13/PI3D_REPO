@@ -19,6 +19,7 @@ public class PlateLaundaryObject : LaundaryObject
 
     public bool TryAddRopa(LaundaryObjectSO laundaryObjectSO)
     {
+        Debug.Log("TryAddRopa: " + laundaryObjectSO.name + " | En lista: " + validRopaSOList.Contains(laundaryObjectSO));
         if (!validRopaSOList.Contains(laundaryObjectSO))
         {
             return false;

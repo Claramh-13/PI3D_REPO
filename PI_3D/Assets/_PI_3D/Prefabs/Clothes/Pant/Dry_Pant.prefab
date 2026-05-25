@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 25b74fd20b03e664e85b2887f6acaeb6, type: 2}
     - target: {fileID: 919132149155446097, guid: 5127a29a35a209949a3890a87fd22388, type: 3}
       propertyPath: m_Name
-      value: "Pantal\xF3n 1"
+      value: Dry_Pant
       objectReference: {fileID: 0}
     - target: {fileID: 4865064391339405807, guid: 5127a29a35a209949a3890a87fd22388, type: 3}
       propertyPath: m_LocalPosition.y
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f9f66579c5b6846ae8a499d2c7beab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObject
-  laundaryObjectSO: {fileID: 11400000, guid: bdbe6aed11069cd4aa6dc985ff114498, type: 2}
+  laundaryObjectSO: {fileID: 11400000, guid: 247070f757205d24191b898a4ea7afbe, type: 2}

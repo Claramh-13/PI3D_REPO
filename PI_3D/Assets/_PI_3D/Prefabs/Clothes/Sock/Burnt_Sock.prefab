@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f9f66579c5b6846ae8a499d2c7beab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaundaryObject
-  laundaryObjectSO: {fileID: 11400000, guid: b505e1523897a4948b081fd0fbdf7af9, type: 2}
+  laundaryObjectSO: {fileID: 11400000, guid: 12422a7b19352ab4f9bf556152786acf, type: 2}
 --- !u!1 &8917915184230231531
 GameObject:
   m_ObjectHideFlags: 0
